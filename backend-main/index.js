@@ -19,3 +19,20 @@ const { revertRepo } = require("./controllers/revert");
 
 dotenv.config();
 
+yargs(hideBin(process.argv))
+  .command("start", "Starts a new server", {}, startServer)
+  .command("init", "Initialise a new repository", {}, initRepo)
+  .command(
+    "add <file>",
+    "Add a file to the repository",
+    (yargs) => {
+      yargs.positional("file", {
+        describe: "File to add to the staging area",
+        type: "string",
+      });
+    },
+    (argv) => {
+      addRepo(argv.file);
+    }
+  )
+  
