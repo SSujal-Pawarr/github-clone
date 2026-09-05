@@ -66,3 +66,22 @@ yargs(hideBin(process.argv))
   .demandCommand(1, "You need at least one command")
   .help().argv;
 
+function startServer() {
+  const app = express();
+  const port = process.env.PORT || 3000;
+
+  app.use(bodyParser.json());
+  app.use(express.json());
+
+  const mongoURI = process.env.MONGODB_URI;
+
+  mongoose
+    .connect(mongoURI)
+    .then(() => console.log("MongoDB connected!"))
+    .catch((err) => console.error("Unable to connect : ", err));
+
+  app.use(cors({ origin: "*" }));
+
+  app.use("/", mainRouter);
+
+ 
