@@ -9,3 +9,4 @@ issueRouter.delete("/issue/delete/:id", issueController.deleteIssueById);
 issueRouter.get("/issue/all", issueController.getAllIssues);
 issueRouter.get("/issue/:id", issueController.getIssueById);
 
+module.exports = issueRouter;
