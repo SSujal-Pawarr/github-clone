@@ -31,3 +31,4 @@ async function commitRepo(message) {
   }
 }
 
+module.exports = { commitRepo };
