@@ -5,6 +5,5 @@ async function initRepo() {
   const repoPath = path.resolve(process.cwd(), ".apnaGit");
   const commitsPath = path.join(repoPath, "commits");
 
- 
 }
 
