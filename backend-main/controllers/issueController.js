@@ -94,4 +94,10 @@ async function getIssueById(req, res) {
   }
 }
 
-
+module.exports = {
+  createIssue,
+  updateIssueById,
+  deleteIssueById,
+  getAllIssues,
+  getIssueById,
+};
