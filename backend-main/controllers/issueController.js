@@ -23,3 +23,26 @@ async function createIssue(req, res) {
   }
 }
 
+async function updateIssueById(req, res) {
+  const { id } = req.params;
+  const { title, description, status } = req.body;
+  try {
+    const issue = await Issue.findById(id);
+
+    if (!issue) {
+      return res.status(404).json({ error: "Issue not found!" });
+    }
+
+    issue.title = title;
+    issue.description = description;
+    issue.status = status;
+
+    await issue.save();
+
+    res.json(issue, { message: "Issue updated" });
+  } catch (err) {
+    console.error("Error during issue updation : ", err.message);
+    res.status(500).send("Server error");
+  }
+}
+
