@@ -46,3 +46,19 @@ async function updateIssueById(req, res) {
   }
 }
 
+async function deleteIssueById(req, res) {
+  const { id } = req.params;
+
+  try {
+    const issue = Issue.findByIdAndDelete(id);
+
+    if (!issue) {
+      return res.status(404).json({ error: "Issue not found!" });
+    }
+    res.json({ message: "Issue deleted" });
+  } catch (err) {
+    console.error("Error during issue deletion : ", err.message);
+    res.status(500).send("Server error");
+  }
+}
+
