@@ -40,3 +40,4 @@ async function pullRepo() {
   }
 }
 
+module.exports = { pullRepo };
