@@ -36,3 +36,16 @@ async function createRepository(req, res) {
   }
 }
 
+async function getAllRepositories(req, res) {
+  try {
+    const repositories = await Repository.find({})
+      .populate("owner")
+      .populate("issues");
+
+    res.json(repositories);
+  } catch (err) {
+    console.error("Error during fetching repositories : ", err.message);
+    res.status(500).send("Server error");
+  }
+}
+
