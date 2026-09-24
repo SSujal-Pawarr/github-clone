@@ -63,3 +63,17 @@ async function fetchRepositoryById(req, res) {
   }
 }
 
+async function fetchRepositoryByName(req, res) {
+  const { name } = req.params;
+  try {
+    const repository = await Repository.find({ name })
+      .populate("owner")
+      .populate("issues");
+
+    res.json(repository);
+  } catch (err) {
+    console.error("Error during fetching repository : ", err.message);
+    res.status(500).send("Server error");
+  }
+}
+
