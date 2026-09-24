@@ -158,3 +158,13 @@ async function deleteRepositoryById(req, res) {
   }
 }
 
+module.exports = {
+  createRepository,
+  getAllRepositories,
+  fetchRepositoryById,
+  fetchRepositoryByName,
+  fetchRepositoriesForCurrentUser,
+  updateRepositoryById,
+  toggleVisibilityById,
+  deleteRepositoryById,
+};
