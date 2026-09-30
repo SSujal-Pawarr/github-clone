@@ -19,3 +19,13 @@ const generateActivityData = (startDate, endDate) => {
   return data;
 };
 
+const getPanelColors = (maxCount) => {
+  const colors = {};
+  for (let i = 0; i <= maxCount; i++) {
+    const greenValue = Math.floor((i / maxCount) * 255);
+    colors[i] = `rgb(0, ${greenValue}, 0)`;
+  }
+
+  return colors;
+};
+
