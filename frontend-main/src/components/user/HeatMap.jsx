@@ -29,3 +29,42 @@ const getPanelColors = (maxCount) => {
   return colors;
 };
 
+const HeatMapProfile = () => {
+  const [activityData, setActivityData] = useState([]);
+  const [panelColors, setPanelColors] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const startDate = "2001-01-01";
+      const endDate = "2001-01-31";
+      const data = generateActivityData(startDate, endDate);
+      setActivityData(data);
+
+      const maxCount = Math.max(...data.map((d) => d.count));
+      setPanelColors(getPanelColors(maxCount));
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h4>Recent Contributions</h4>
+      <HeatMap
+        className="HeatMapProfile"
+        style={{ maxWidth: "700px", height: "200px", color: "white" }}
+        value={activityData}
+        weekLabels={["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]}
+        startDate={new Date("2001-01-01")}
+        rectSize={15}
+        space={3}
+        rectProps={{
+          rx: 2.5,
+        }}
+        panelColors={panelColors}
+      />
+    </div>
+  );
+};
+
+export default HeatMapProfile;
