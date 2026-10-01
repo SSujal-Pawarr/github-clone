@@ -6,3 +6,17 @@
   /* flex-wrap: wrap; */
 }
 
+.user-profile-section {
+  width: 250px;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10px;
+}
+
+.user-repo-section {
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
