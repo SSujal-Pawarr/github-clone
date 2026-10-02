@@ -8,4 +8,3 @@ import { BookIcon, RepoIcon } from "@primer/octicons-react";
 import HeatMapProfile from "./HeatMap";
 import { useAuth } from "../../authContext";
 
-
