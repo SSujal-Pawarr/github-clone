@@ -38,4 +38,17 @@ const Dashboard = () => {
     fetchSuggestedRepositories();
   }, []);
 
- 
+  useEffect(() => {
+    if (searchQuery == "") {
+      setSearchResults(repositories);
+    } else {
+      const filteredRepo = repositories.filter((repo) =>
+        repo.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchResults(filteredRepo);
+    }
+  }, [searchQuery, repositories]);
+
+  
+};
+
