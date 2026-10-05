@@ -23,4 +23,19 @@ const Dashboard = () => {
       }
     };
 
-   
+    const fetchSuggestedRepositories = async () => {
+      try {
+        const response = await fetch(`http://localhost:3002/repo/all`);
+        const data = await response.json();
+        setSuggestedRepositories(data);
+        console.log(suggestedRepositories);
+      } catch (err) {
+        console.error("Error while fecthing repositories: ", err);
+      }
+    };
+
+    fetchRepositories();
+    fetchSuggestedRepositories();
+  }, []);
+
+ 
