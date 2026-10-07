@@ -9,4 +9,35 @@ import "./auth.css";
 import logo from "../../assets/github-mark-white.svg";
 import { Link } from "react-router-dom";
 
+const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
+  const { setCurrentUser } = useAuth();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const res = await axios.post("http://localhost:3002/signup", {
+        email: email,
+        password: password,
+        username: username,
+      });
+
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("userId", res.data.userId);
+
+      setCurrentUser(res.data.userId);
+      setLoading(false);
+
+      window.location.href = "/";
+    } catch (err) {
+      console.error(err);
+      alert("Signup Failed!");
+      setLoading(false);
+    }
+  };
