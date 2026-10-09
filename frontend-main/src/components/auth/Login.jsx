@@ -45,4 +45,65 @@ const Login = () => {
     }
   };
 
-  
+  return (
+    <div className="login-wrapper">
+      <div className="login-logo-container">
+        <img className="logo-login" src={logo} alt="Logo" />
+      </div>
+
+      <div className="login-box-wrapper">
+        <div className="login-heading">
+          <Box sx={{ padding: 1 }}>
+            <PageHeader>
+              <PageHeader.TitleArea variant="large">
+                <PageHeader.Title>Sign In</PageHeader.Title>
+              </PageHeader.TitleArea>
+            </PageHeader>
+          </Box>
+        </div>
+        <div className="login-box">
+          <div>
+            <label className="label">Email address</label>
+            <input
+              autoComplete="off"
+              name="Email"
+              id="Email"
+              className="input"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="div">
+            <label className="label">Password</label>
+            <input
+              autoComplete="off"
+              name="Password"
+              id="Password"
+              className="input"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <Button
+            variant="primary"
+            className="login-btn"
+            disabled={loading}
+            onClick={handleLogin}
+          >
+            {loading ? "Loading..." : "Login"}
+          </Button>
+        </div>
+        <div className="pass-box">
+          <p>
+            New to GitHub? <Link to="/signup">Create an account</Link>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
