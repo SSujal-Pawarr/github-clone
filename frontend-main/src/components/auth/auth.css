@@ -67,4 +67,80 @@
   .input:focus {
     border-color: lightblue;
   }
- 
+  
+  .submit-btn {
+    background-color: #238636;
+    border: none;
+    width: 250px;
+    border-radius: 5px;
+    height: 35px;
+    color: #f1f6fd;
+    font-weight: 700;
+    padding: 0 1rem;
+  }
+  
+  .submit-btn:hover {
+    background-color: #499458;
+    cursor: pointer;
+  }
+  
+  .passkey-signin {
+    border: 0.5px solid #e6e9ed;
+    width: 360px;
+    border-radius: 10px;
+    height: 90px;
+    margin: 10px auto;
+  }
+  
+  .passkey-signin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+  
+  .passkey,
+  .signup {
+    color: #2b7df7;
+    cursor: pointer;
+    /* font-size: px; */
+  }
+  
+  .login-btn {
+    width: 250px;
+  }
+  
+  .pass-box {
+    width: 364px;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px 10px;
+    border: 1px solid #3d3d3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .signup-button {
+    width: 250px;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .login-box {
+      width: 200px;
+    }
+  
+    .input {
+      width: 150px;
+    }
+  
+    .login-btn {
+      width: 150px;
+    }
+  
+    .pass-box {
+      width: 200px;
+    }
+  }
